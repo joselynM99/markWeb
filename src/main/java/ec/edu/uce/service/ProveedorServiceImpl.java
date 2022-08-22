@@ -30,8 +30,8 @@ public class ProveedorServiceImpl implements IProveedorService {
 	}
 
 	@Override
-	public void actualizarProducto(Proveedor proveedor) {
-		this.proveedorRepo.actualizarProducto(proveedor);
+	public void actualizarProveedor(Proveedor proveedor) {
+		this.proveedorRepo.actualizarProveedor(proveedor);
 	}
 
 	@Override

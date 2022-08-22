@@ -38,6 +38,16 @@ public class ProductoServiceImpl implements IProductoService{
 	public void eliminarProducto(Integer id) {
 		this.productoRepo.eliminarProducto(id);
 	}
+
+	@Override
+	public Producto buscarProductoPorCodigoBarras(String codigoBarras) {
+		return this.productoRepo.buscarProductoPorCodigoBarras(codigoBarras);
+	}
+
+	@Override
+	public List<Producto> buscarProductoPorNombre(String nombre) {
+		return this.productoRepo.buscarProductoPorNombre("%"+nombre+"%");
+	}
 	
 	
 

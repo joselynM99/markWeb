@@ -25,7 +25,7 @@ public class Producto {
 	@Column(name = "prod_id")
 	private Integer id;
 
-	@Column(name = "prod_codigo_barras")
+	@Column(name = "prod_codigo_barras", unique = true)
 	private String codigoBarras;
 
 	@Column(name = "prod_nombre")
@@ -143,5 +143,14 @@ public class Producto {
 	public void setCompras(List<DetalleCompra> compras) {
 		this.compras = compras;
 	}
+
+	@Override
+	public String toString() {
+		return "Producto [id=" + id + ", codigoBarras=" + codigoBarras + ", nombre=" + nombre + ", descripcion="
+				+ descripcion + ", categoria=" + categoria + ", costoBruto=" + costoBruto + ", valorVenta=" + valorVenta
+				+ ", cantidad=" + cantidad + "]";
+	}
+	
+	
 
 }

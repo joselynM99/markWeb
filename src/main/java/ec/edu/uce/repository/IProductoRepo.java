@@ -15,4 +15,8 @@ public interface IProductoRepo {
 	void actualizarProducto(Producto producto);
 	
 	void eliminarProducto(Integer id);
+
+	Producto buscarProductoPorCodigoBarras(String codigoBarras);
+
+	List<Producto> buscarProductoPorNombre(String nombre);
 }

@@ -1,8 +1,10 @@
 package ec.edu.uce.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import ec.edu.uce.modelo.Compra;
+import ec.edu.uce.modelo.DetalleVenta;
 import ec.edu.uce.modelo.Venta;
 
 public interface IVentaService {
@@ -16,5 +18,9 @@ public interface IVentaService {
 	void actualizarVenta(Venta venta);
 
 	void eliminarVenta(Integer id);
+
+	void realizarVenta(List<DetalleVenta> detalles);
+
+	BigDecimal calcularValorAPagar(List<DetalleVenta> detalles);
 
 }

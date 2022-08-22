@@ -36,6 +36,27 @@ public class DetalleVenta {
 	@JoinColumn(name = "prod_id")
 	private Producto producto;
 
+	/**
+	 * 
+	 */
+	public DetalleVenta() {
+		super();
+	}
+
+	/**
+	 * @param id
+	 * @param cantidad
+	 * @param total
+	 * @param venta
+	 * @param producto
+	 */
+	public DetalleVenta(Integer cantidad, BigDecimal total, Producto producto) {
+		super();
+		this.cantidad = cantidad;
+		this.total = total;
+		this.producto = producto;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -74,6 +95,12 @@ public class DetalleVenta {
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
+	}
+
+	@Override
+	public String toString() {
+		return "DetalleVenta [id=" + id + ", cantidad=" + cantidad + ", total=" + total + ", venta=" + venta
+				+ ", producto=" + producto + "]";
 	}
 
 }

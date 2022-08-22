@@ -11,7 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import ec.edu.uce.modelo.Categorias;
+import ec.edu.uce.modelo.DetalleVenta;
 import ec.edu.uce.modelo.Producto;
 import ec.edu.uce.modelo.Proveedor;
 import ec.edu.uce.service.ICompraService;
@@ -71,9 +71,22 @@ public class MarwebApplication implements CommandLineRunner {
 		lPr.add(pr);
 		p.setProductos(lPr);
 
-//		this.proveedorService.insertarProveedor(p);
-//		this.productoService.insertarProducto(pr);
+//	this.proveedorService.insertarProveedor(p);
+//this.productoService.insertarProducto(pr);
 
+		List<Producto> lp = this.productoService.buscarProductoPorNombre("g");
+
+		List<DetalleVenta> list = new ArrayList<DetalleVenta>();
+		for (Producto d : lp) {
+			DetalleVenta dv = new DetalleVenta();
+			dv.setCantidad(2);
+			dv.setProducto(d);
+			list.add(dv);
+		}
+		
+//	this.ventaService.realizarVenta(list);
+		
+		
 	}
 
 }

@@ -3,6 +3,7 @@ package ec.edu.uce.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
@@ -13,8 +14,8 @@ import ec.edu.uce.modelo.Producto;
 
 @Repository
 @Transactional
-public class ProductoRepoImpl implements IProductoRepo{
-	
+public class ProductoRepoImpl implements IProductoRepo {
+
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -33,6 +34,36 @@ public class ProductoRepoImpl implements IProductoRepo{
 		TypedQuery<Producto> myQuery = this.entityManager.createQuery("SELECT p FROM Producto p", Producto.class);
 
 		return myQuery.getResultList();
+	}
+
+	@Override
+	public Producto buscarProductoPorCodigoBarras(String codigoBarras) {
+		TypedQuery<Producto> myQuery = this.entityManager
+				.createQuery("SELECT p FROM Producto p WHERE p.codigoBarras=:codigoBarras", Producto.class);
+
+		myQuery.setParameter("codigoBarras", codigoBarras);
+		try {
+
+			return myQuery.getSingleResult();
+
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<Producto> buscarProductoPorNombre(String nombre) {
+		TypedQuery<Producto> myQuery = this.entityManager
+				.createQuery("SELECT p FROM Producto p WHERE UPPER(p.nombre) LIKE UPPER(:nombre)", Producto.class);
+
+		myQuery.setParameter("nombre", nombre);
+		try {
+
+			return myQuery.getResultList();
+
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 
 	@Override

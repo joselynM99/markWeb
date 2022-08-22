@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<link th:href="@{/CSS/misprimerosestilos4.css}" rel="stylesheet">
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="x-ua-compatible">
@@ -21,10 +23,15 @@
 	<div class=container my-5>
 		<div class="card-body">
 			<form th:action="@{/inventario/insertarProveedor}" th:object="${proveedor}" method="post">
-				<table class="table-primary">
+				<table class="table-primary" id= "tab">
+
+					<div th:classappend="'alert'" th:if="${error != null}" th:text="${error}" class="alert" id="error">
+					</div>
+					<div th:classappend="'alert'" th:if="${mensaje != null}" th:text="${mensaje}" class="alert" id="mensaje">
+					</div>
 					<tr>
 						<td>
-							<label class="col-form-label">Nombre o Empresa:</label>
+							<label class="col-form-label" id="n" >Nombre o Empresa:</label>
 						</td>
 						<td>
 							<input type="text" class="form-control" id="nombre" th:field="*{nombreEmpresa}">
@@ -32,7 +39,7 @@
 					</tr>
 					<tr>
 						<td>
-							<label class="col-form-label">Teléfono:</label>
+							<label class="col-form-label" id="t">Teléfono:</label>
 						</td>
 						<td>
 							<input class="form-control" type="text" id="telefono" th:field="*{telefono}">
@@ -40,7 +47,7 @@
 					</tr>
 
 				</table>
-				<input type="submit" class="btn btn-dark" value="Ingresar">
+				<input type="submit" class="btn btn-dark" value="Ingresar" id="boton1">
 			</form>
 
 		</div>

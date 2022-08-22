@@ -44,7 +44,8 @@ public class ProveedorRepoImpl implements IProveedorRepo {
 		myQuery.setParameter("nombreEmpresa", nombreEmpresa);
 
 		try {
-
+			myQuery.setFirstResult(0);
+			myQuery.setMaxResults(1);
 			return myQuery.getSingleResult();
 
 		} catch (NoResultException e) {
@@ -54,7 +55,7 @@ public class ProveedorRepoImpl implements IProveedorRepo {
 	}
 
 	@Override
-	public void actualizarProducto(Proveedor proveedor) {
+	public void actualizarProveedor(Proveedor proveedor) {
 		this.entityManager.merge(proveedor);
 	}
 
