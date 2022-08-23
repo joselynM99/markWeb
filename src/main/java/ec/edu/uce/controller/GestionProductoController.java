@@ -103,7 +103,7 @@ public class GestionProductoController {
 
 	}
 
-	@PostMapping("actualizar")
+	@PutMapping("actualizar")
 	public String actualizarProducto(Producto producto, Model modelo, RedirectAttributes redirectAttributes) {
 
 		Proveedor proveedor = this.proveedorService.buscarProveedorNombre(producto.getProveedor().getNombreEmpresa());
@@ -116,12 +116,13 @@ public class GestionProductoController {
 		return "redirect:/inventario/actualizarProducto";
 	}
 
-	@PostMapping("eliminarProducto/{idProducto}")
-	public String eliminarProducto(@PathVariable Integer idProducto, Producto producto, Model modelo) {
-
+	@DeleteMapping("eliminarProducto/{idProducto}")
+	public String eliminarProducto(@PathVariable Integer idProducto, Producto producto, Model modelo,
+			RedirectAttributes redirectAttributes) {
+		redirectAttributes.addFlashAttribute("mensaje", "Producto eliminado");
 		LOG.info("" + idProducto);
 		this.productoService.eliminarProducto(idProducto);
-		return "productoActualizar";
+		return "redirect:/inventario/actualizarProducto";
 	}
 
 	@GetMapping("ingresoProveedor")

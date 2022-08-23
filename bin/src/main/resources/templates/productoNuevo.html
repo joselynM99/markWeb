@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<link th:href="@{/CSS/misprimerosestilos6.css}" rel="stylesheet">
+	<link th:href="@{/CSS/misprimerosestilos3.css}" rel="stylesheet">
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,36 +14,36 @@
 
 <body style="background-color:#FCB15D;">
 
-	<div class=container my-5 style="text-align:center;">
+	<div class=container my-5>
 		<div class="card-body">
-			<h1 class="display-1" id="titulo">Eliminar o Actualizar Producto</h1>
+			<h1 class="display-1">Registro de Productos</h1>
 		</div>
 	</div>
 
-	<div class=container my-5 style="text-align:center;">
+	<div class=container my-5>
 		<div class="card-body">
 
-			<form th:action="@{/inventario/busquedaProducto}" th:object="${producto}" method="get">
-				<table class="table-primary" id=tabla2>
+			<form th:action="@{/inventario/busquedaProveedor}" th:object="${producto.proveedor}" method="get">
+				<table class="table-primary">
 					<tr>
 						<td>
-							<label class="col-form-label">Código de Barras:</label>
+							<label class="col-form-label">Ingresar nombre del proveedor:</label>
 						</td>
 						<td>
-							<input class="form-control" type="text" id="codigoBarras" th:field="*{codigoBarras}">
-						</td>
-						<td>
-							<input type="submit" class="btn btn-dark" value="Buscar">
+							<input class="form-control" type="text" id="nomProveedor" th:field="*{nombreEmpresa}">
 						</td>
 
 					</tr>
+					<td>
+						<input type="submit" class="btn btn-dark" value="Buscar">
+					</td>
 
-
-					<div th:classappend="'alert'" th:if="${error != null}" th:text="${error}" class="alert" id="error">
+					<div th:classappend="'alert'" th:if="${error != null}"
+						th:text="${error}" class="alert" id="error">
 					</div>
-
-					<div th:classappend="'alert'" th:if="${mensaje != null}" th:text="${mensaje}" class="alert"
-						id="mensaje">
+					
+					<div th:classappend="'alert'" th:if="${mensaje != null}"
+						th:text="${mensaje}" class="alert" id="mensaje">
 					</div>
 
 				</table>
@@ -54,22 +54,14 @@
 	</div>
 	<div class=container my-5>
 		<div class="card-body">
-			<form th:action="@{/inventario/actualizar}" th:object="${producto}" th:method="put">
-				<table class="table-primary" id="tabla1">
+			<form th:action="@{/inventario/insertarProducto}" th:object="${producto}" method="post">
+				<table class="table-primary">
 					<tr>
 						<td>
 							<label class="col-form-label">Nombre:</label>
 						</td>
 						<td>
 							<input type="text" class="form-control" id="nombre" th:field="*{nombre}">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label class="col-form-label">ID:</label>
-						</td>
-						<td>
-							<input type="text" class="form-control" id="id" th:field="*{id}">
 						</td>
 					</tr>
 					<tr>
@@ -152,18 +144,8 @@
 						</td>
 					</tr>
 				</table>
-				<input type="submit" class="btn btn-dark" id="boton2" value="Actualizar">
-
-
+				<input type="submit" class="btn btn-dark" value="Ingresar">
 			</form>
-
-			<form th:action="@{/inventario/eliminarProducto/{id}(id=${producto.id})}" th:object="${producto}"
-				th:method="delete">
-				<table class="table-primary">
-					<input type="submit" class="btn btn-dark" id="boton1" value="Eliminar">
-				</table>
-			</form>
-
 
 		</div>
 	</div>

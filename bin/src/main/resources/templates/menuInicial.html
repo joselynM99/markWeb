@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<link th:href="@{/CSS/misprimerosestilos2.css}" rel="stylesheet">
+	<link th:href="@{/CSS/misprimerosestilos.css}" rel="stylesheet">
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,30 +16,36 @@
 
 	<div class=container my-5>
 		<div class="card-body">
-			<h1 class="display-1" id="titulo">Gestión de Productos</h1>
+			<h1 class="display-1" id ="titulo">Menú Inicial</h1>
 		</div>
 	</div>
 
 	<div class=container my-5>
-		<div class="card-body" id="tres">
+		<div class="card-body">
 
 			<table class="table-primary">
 
 				<tr>
 					<td>
-						<form th:action="@{/inventario/ingresoProducto}" th:method="get">
-							<input type="submit" class="btn btn-dark" id="boton1" value="Ingresar Productos">
+						<form th:action="@{/inventario/GestionProductos}" method="get">
+							<input type="submit" class="btn btn-dark" id="boton1" value="Gestion de Productos">
 						</form>
 					</td>
 				</tr>
 
+				<tr>
+					<td>
+						<form th:action="@{/inventario/ingresoProveedor}" method="get">
+							<input type="submit" class="btn btn-dark" id="boton2" value="Gestion de Proveedores">
+						</form>
+					</td>
+				</tr>
 
 				<tr>
 					<td>
-						<form th:action="@{/inventario/actualizarProducto}" th:method="get">
-							<input type="submit" class="btn btn-dark" id="boton2"
-								value="Modificar o Eliminar Productos">
-						</form>
+
+						<input type="submit" class="btn btn-dark" id="boton3" value="Gestion de Compras">
+
 					</td>
 				</tr>
 

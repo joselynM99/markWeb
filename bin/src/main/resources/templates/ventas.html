@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link th:href="@{/CSS/misprimerosestilos5.css}" rel="stylesheet">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body style="background-color:#FCB15D;">
+
+	<div class=container my-5>
+		<div class="card-body">
+			<h1 class="display-1" id="titulo">Ventas</h1>
+		</div>
+	</div>
+	<div th:classappend="'alert'" th:if="${mensaje1 != null}" th:text="${mensaje1}" class="alert" id="mensaje1">
+	</div>
+	<div class=container my-5>
+		<div class="card-body">
+			<form th:object="${producto}" th:action="@{/ventas/agregar}" method="post">
+				<div class="form-group">
+					<table class="table-primary">
+						<tr>
+
+							<td>
+								<label for="codigoBarras">Código de barras: </label>
+							</td>
+							<td>
+								<input autofocus autocomplete="off" th:field="*{codigoBarras}" id="codigoBarras"
+									placeholder="Escanea el código" type="text" class="form-control">
+							</td>
+						</tr>
+					</table>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<h1 th:text="${'Total: ' + total}" id=total></h1>
+	<div class=container my-5>
+		<div class="card-body">
+			<table class="table table-bordered" id=tabla1>
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Código</th>
+						<th>Precio</th>
+						<th>Cantidad</th>
+						<th>Total</th>
+						<th>Quitar de lista</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="det, iterador : ${session.carrito}">
+						<td th:text="${det.producto.nombre}"></td>
+						<td th:text="${det.producto.codigoBarras}"></td>
+						<td th:text="${det.producto.valorVenta}"></td>
+						<td th:text="${det.cantidad}"></td>
+						<td th:text="${det.total}"></td>
+						<td>
+							<form th:action="@{/ventas/borrar/} + ${iterador.index}" method="post" ,
+								th:object=${producto}>
+								<input type="submit" class="btn btn-dark" value="Eliminar" , id=bot1>
+								</button>
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<form th:action="@{/ventas/buscarProducto}" th:object="${producto}" method="get">
+		<table class="table-primary" , id=tabla2>
+			<tr>
+				<td>
+					<label class="col-form-label">Nombre del producto: </label>
+				</td>
+				<td>
+					<input class="form-control" type="text" id="nomProducto" th:field="*{nombre}">
+				</td>
+
+			</tr>
+			<td>
+				<input type="submit" class="btn btn-dark" value="Buscar">
+			</td>
+
+
+		</table>
+
+	</form>
+
+
+	<table class="table" , id="tab1">
+		<!----cabezera de la tabla---->
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Codigo de barras</th>
+				<th>Descripción</th>
+				<th>Precio</th>
+				<th>Agregar</th>
+			</tr>
+		</thead>
+
+		<!----cuerpo de la tabla---->
+		<tbody>
+			<tr th:each=" prod : ${listaProductos}">
+				<form th:action="@{/ventas/agregar2/{codigoBarras}(codigoBarras=${prod.codigoBarras})}"
+					th:object=${prod} method="post">
+
+					<td th:text="${prod.nombre}"></td>
+					<td th:text="${prod.codigoBarras}"></td>
+					<td th:text="${prod.descripcion}"></td>
+					<td th:text="${prod.valorVenta}"></td>
+
+					<td>
+						<input type="submit" class="btn btn-dark" id="bot4" value="Agregar">
+					</td>
+				</form>
+
+			</tr>
+		</tbody>
+	</table>
+	<div class=container my-5>
+		<div class="card-body">
+			<form th:action="@{/ventas/limpiar}" method="get">
+				<input type="submit" class="btn btn-dark" id="bot2" value="Cancelar Venta">
+			</form>
+		</div>
+	</div>
+
+	<div class=container my-5>
+		<div class="card-body">
+			<form th:action="@{/ventas/realizarVenta}" method="post">
+				<input type="submit" class="btn btn-dark" id="bot3" value="Realizar Venta">
+			</form>
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+
+
+#error {
+  position: absolute;
+  top: 150px;
+  left: 200px;
+  background: white;
+  font-size: 25px;
+  font-family: cursive;
+  font-weight: 900;
+  color: brown;
+}
+
+
+#mensaje {
+  position: absolute;
+  top: 500px;
+  left: 400px;
+  background: rgb(252, 177, 93);
+  font-size: 40px;
+  
+  font-family: cursive;
+}
+
+#tab{
+	
+position: absolute;
+  top: 250px;
+  left: 100px;
+  background: rgb(252, 177, 93);
+  font-size: 20px;
+	
+}
+
+#boton1{
+	
+position: absolute;
+  top: 400px;
+  left: 100px;
+	
+}
+h1{
+	font-family: cursive;
+}

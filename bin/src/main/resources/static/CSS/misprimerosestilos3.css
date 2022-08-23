@@ -1,0 +1,28 @@
+
+
+#error {
+  position: absolute;
+  top: 330px;
+  left: 700px;
+  background: white;
+  font-size: 25px;
+  font-family: cursive;
+  font-weight: 900;
+  color: brown;
+}
+
+
+#mensaje {
+  position: absolute;
+  top: 300px;
+  left: 550px;
+  background: rgb(252, 177, 93);
+  font-size: 40px;
+  font-weight: 100;
+  font-family: cursive;
+}
+
+
+h1{
+	font-family: cursive;
+}

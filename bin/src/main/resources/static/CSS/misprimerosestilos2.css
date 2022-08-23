@@ -1,0 +1,28 @@
+#titulo {
+  position: absolute;
+  top: 35px;
+  left: 175px;
+  background:rgb(252, 177, 93);
+  font-size: 100px;
+}
+
+#boton1 {
+  position: absolute;
+  top: 250px;
+  left: 500px;
+  background:black;
+   font-size: 40px;
+}
+
+#boton2 {
+  position: absolute;
+  top: 400px;
+  left: 395px;
+  background:black;
+   font-size: 40px;
+}
+
+
+h1{
+	font-family: cursive;
+}

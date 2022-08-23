@@ -54,7 +54,7 @@
 	</div>
 	<div class=container my-5>
 		<div class="card-body">
-			<form th:action="@{/inventario/actualizar}" th:object="${producto}" th:method="put">
+			<form th:action="@{/inventario/actualizar}" th:object="${producto}" method="post">
 				<table class="table-primary" id="tabla1">
 					<tr>
 						<td>
@@ -158,7 +158,7 @@
 			</form>
 
 			<form th:action="@{/inventario/eliminarProducto/{id}(id=${producto.id})}" th:object="${producto}"
-				th:method="delete">
+				method="post">
 				<table class="table-primary">
 					<input type="submit" class="btn btn-dark" id="boton1" value="Eliminar">
 				</table>
