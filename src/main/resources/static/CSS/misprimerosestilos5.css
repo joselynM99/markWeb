@@ -1,4 +1,10 @@
-
+#boton4 {
+  position: absolute;
+  top: 40px;
+  left: 1000px;
+  background:black;
+   font-size: 18px;
+}
 #tab1{	
   position: absolute;
   top: 320px;

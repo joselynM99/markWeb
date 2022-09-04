@@ -16,7 +16,7 @@
 
 	<div class=container my-5>
 		<div class="card-body">
-			<h1 class="display-1" id ="titulo">Menú Inicial</h1>
+			<h1 class="display-1" id="titulo">Menú Inicial</h1>
 		</div>
 	</div>
 
@@ -35,7 +35,7 @@
 
 				<tr>
 					<td>
-						<form th:action="@{/inventario/ingresoProveedor}" method="get">
+						<form th:action="@{/inventario/GestionProveedores}" method="get">
 							<input type="submit" class="btn btn-dark" id="boton2" value="Gestion de Proveedores">
 						</form>
 					</td>
@@ -43,9 +43,16 @@
 
 				<tr>
 					<td>
-
-						<input type="submit" class="btn btn-dark" id="boton3" value="Gestion de Compras">
-
+						<form th:action="@{/inventario/GestionCompras}" method="get">
+							<input type="submit" class="btn btn-dark" id="boton3" value="Gestion de Compras">
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form th:action="@{/ventas/gestionVentas}" method="get">
+							<input type="submit" class="btn btn-dark" id="boton4" value="Gestion de Ventas">
+						</form>
 					</td>
 				</tr>
 

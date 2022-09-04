@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<link th:href="@{/CSS/misprimerosestilos2.css}" rel="stylesheet">
+	<link th:href="@{/CSS/misprimerosestilos15.css}" rel="stylesheet">
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
 
 	<div class=container my-5>
 		<div class="card-body">
-			<h1 class="display-1" id="titulo">Gestión de Productos</h1>
+			<h1 class="display-1" id="titulo">Gestión de Compras</h1>
 		</div>
 	</div>
 
@@ -27,8 +27,8 @@
 
 				<tr>
 					<td>
-						<form th:action="@{/inventario/ingresoProducto}" th:method="get">
-							<input type="submit" class="btn btn-dark" id="boton1" value="Ingresar Productos">
+						<form th:action="@{/compras/vetanaInicio}" th:method="get">
+							<input type="submit" class="btn btn-dark" id="boton1" value="Realizar Compra">
 						</form>
 					</td>
 				</tr>
@@ -36,16 +36,8 @@
 
 				<tr>
 					<td>
-						<form th:action="@{/inventario/actualizarProducto}" th:method="get">
-							<input type="submit" class="btn btn-dark" id="boton2"
-								value="Modificar o Eliminar Productos">
-						</form>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<form th:action="@{/reportes/reporteProductos}" th:method="get">
-							<input type="submit" class="btn btn-dark" id="boton3" value="Reporte de Productos">
+						<form th:action="@{/reportes/reporteCompras}" th:method="get">
+							<input type="submit" class="btn btn-dark" id="boton2" value="Reporte de Compras">
 						</form>
 					</td>
 				</tr>

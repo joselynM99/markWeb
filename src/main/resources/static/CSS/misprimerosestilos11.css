@@ -1,4 +1,10 @@
-
+#boton4 {
+  position: absolute;
+  top: 40px;
+  left: 1000px;
+  background:black;
+   font-size: 18px;
+}
 
 #error {
   position: absolute;
@@ -21,13 +27,7 @@
   font-weight: 100;
   font-family: cursive;
 }
-#boton4 {
-  position: absolute;
-  top: 600px;
-  left: 900px;
-  background:black;
-   font-size: 18px;
-}
+
 
 h1{
 	font-family: cursive;

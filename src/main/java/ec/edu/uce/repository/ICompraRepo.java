@@ -1,5 +1,6 @@
 package ec.edu.uce.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import ec.edu.uce.modelo.Compra;
@@ -15,5 +16,7 @@ public interface ICompraRepo {
 	void actualizarCompra(Compra compra);
 
 	void eliminarCompra(Integer id);
+
+	List<Compra> buscarPorFechaTO(LocalDateTime fechaInicio, LocalDateTime fechaFinal);
 
 }

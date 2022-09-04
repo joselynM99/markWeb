@@ -1,6 +1,7 @@
 package ec.edu.uce.modelo;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,53 +16,40 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "producto")
-public class Producto {
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_producto")
-	@SequenceGenerator(name = "seq_producto", sequenceName = "seq_producto", allocationSize = 1)
-	@Column(name = "prod_id")
-	private Integer id;
+public class ProductoTO {
 
-	@Column(name = "prod_codigo_barras", unique = true)
 	private String codigoBarras;
 
-	@Column(name = "prod_nombre")
 	private String nombre;
 
-	@Column(name = "prod_descripcion")
 	private String descripcion;
 
-	@Column(name = "prod_categoria")
 	private String categoria;
 
-	@Column(name = "prod_costoBruto")
 	private BigDecimal costoBruto;
 
-	@Column(name = "prod_valorVenta")
 	private BigDecimal valorVenta;
 
-	@Column(name = "prod_cantidad")
 	private Integer cantidad;
 
-	@ManyToOne
-	@JoinColumn(name = "prov_id")
 	private Proveedor proveedor;
 
-	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
 	private List<DetalleVenta> ventas;
 
-	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
 	private List<DetalleCompra> compras;
 
-	public Integer getId() {
-		return id;
+	@DateTimeFormat(iso = ISO.DATE_TIME)
+	private LocalDateTime fecha;
+
+	public LocalDateTime getFecha() {
+		return fecha;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setFecha(LocalDateTime fecha) {
+		this.fecha = fecha;
 	}
 
 	public String getCodigoBarras() {
@@ -142,13 +130,6 @@ public class Producto {
 
 	public void setCompras(List<DetalleCompra> compras) {
 		this.compras = compras;
-	}
-
-	@Override
-	public String toString() {
-		return "Producto [id=" + id + ", codigoBarras=" + codigoBarras + ", nombre=" + nombre + ", descripcion="
-				+ descripcion + ", categoria=" + categoria + ", costoBruto=" + costoBruto + ", valorVenta=" + valorVenta
-				+ ", cantidad=" + cantidad + "]";
 	}
 
 }

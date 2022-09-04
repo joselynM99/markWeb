@@ -50,13 +50,28 @@ public class ProductoRepoImpl implements IProductoRepo {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public List<Producto> buscarProductoPorNombre(String nombre) {
 		TypedQuery<Producto> myQuery = this.entityManager
 				.createQuery("SELECT p FROM Producto p WHERE UPPER(p.nombre) LIKE UPPER(:nombre)", Producto.class);
 
 		myQuery.setParameter("nombre", nombre);
+		try {
+
+			return myQuery.getResultList();
+
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+
+	@Override
+	public List<Producto> buscarProductoPorCategoria(String categoria) {
+		TypedQuery<Producto> myQuery = this.entityManager
+				.createQuery("SELECT p FROM Producto p WHERE p.categoria LIKE :categoria", Producto.class);
+
+		myQuery.setParameter("categoria", categoria);
 		try {
 
 			return myQuery.getResultList();

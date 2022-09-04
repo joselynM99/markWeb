@@ -16,6 +16,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @Entity
 @Table(name = "compra")
 public class Compra {
@@ -29,6 +32,7 @@ public class Compra {
 	@Column(name = "comp_valor_compra")
 	private BigDecimal valorCompra;
 
+	@DateTimeFormat(iso = ISO.DATE_TIME)
 	@Column(name = "comp_fecha")
 	private LocalDateTime fecha;
 

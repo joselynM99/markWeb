@@ -19,4 +19,6 @@ public interface IProductoRepo {
 	Producto buscarProductoPorCodigoBarras(String codigoBarras);
 
 	List<Producto> buscarProductoPorNombre(String nombre);
+
+	List<Producto> buscarProductoPorCategoria(String categoria);
 }

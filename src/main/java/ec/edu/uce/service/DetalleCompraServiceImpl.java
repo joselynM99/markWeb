@@ -1,5 +1,6 @@
 package ec.edu.uce.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,11 @@ public class DetalleCompraServiceImpl implements IDetalleCompraService {
 	@Override
 	public void eliminarDetalleCompra(Integer id) {
 		this.detalleCompraRepo.eliminarDetalleCompra(id);
+	}
+	
+	@Override
+	public BigDecimal calcularValorCompra(Integer cantidad, BigDecimal precio) {
+		return precio.multiply(new BigDecimal(cantidad));
 	}
 
 }

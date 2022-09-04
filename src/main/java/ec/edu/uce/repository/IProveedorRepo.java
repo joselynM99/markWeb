@@ -18,4 +18,6 @@ public interface IProveedorRepo {
 
 	void actualizarProveedor(Proveedor proveedor);
 
+	List<Proveedor> buscarProveedorPorNombre(String nombreEmpresa);
+
 }

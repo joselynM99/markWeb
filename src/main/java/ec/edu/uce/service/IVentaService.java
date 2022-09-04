@@ -1,6 +1,7 @@
 package ec.edu.uce.service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import ec.edu.uce.modelo.Compra;
@@ -22,5 +23,7 @@ public interface IVentaService {
 	void realizarVenta(List<DetalleVenta> detalles);
 
 	BigDecimal calcularValorAPagar(List<DetalleVenta> detalles);
+
+	List<Venta> buscarPorFechaTO(LocalDateTime fechaInicio, LocalDateTime fechaFinal);
 
 }

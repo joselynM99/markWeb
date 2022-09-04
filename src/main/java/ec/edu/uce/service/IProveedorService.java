@@ -17,4 +17,6 @@ public interface IProveedorService {
 	void eliminarProveedor(Integer id);
 
 	void actualizarProveedor(Proveedor proveedor);
+	
+	List<Proveedor> buscarProveedorPorNombre(String nombreEmpresa);
 }

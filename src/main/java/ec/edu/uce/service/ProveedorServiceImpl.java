@@ -44,4 +44,9 @@ public class ProveedorServiceImpl implements IProveedorService {
 		return this.proveedorRepo.buscarProveedorNombre(nombreEmpresa);
 	}
 
+	@Override
+	public List<Proveedor> buscarProveedorPorNombre(String nombreEmpresa) {
+		return this.proveedorRepo.buscarProveedorPorNombre(nombreEmpresa);
+	}
+
 }

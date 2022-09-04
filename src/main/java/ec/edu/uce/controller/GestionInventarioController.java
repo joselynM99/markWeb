@@ -20,7 +20,7 @@ import ec.edu.uce.service.IProveedorService;
 
 @Controller
 @RequestMapping("/inventario/")
-public class GestionProductoController {
+public class GestionInventarioController {
 
 	@Autowired
 	private IProductoService productoService;
@@ -28,7 +28,7 @@ public class GestionProductoController {
 	@Autowired
 	private IProveedorService proveedorService;
 
-	private static final Logger LOG = LoggerFactory.getLogger(GestionProductoController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(GestionInventarioController.class);
 
 	@GetMapping("MenuInicial")
 	public String obtenerMenuInicial() {
@@ -38,6 +38,16 @@ public class GestionProductoController {
 	@GetMapping("GestionProductos")
 	public String obtenerMenuProductos() {
 		return "menuProductos";
+	}
+
+	@GetMapping("GestionProveedores")
+	public String obtenerMenuProveedores() {
+		return "menuProveedor";
+	}
+
+	@GetMapping("GestionCompras")
+	public String obtenerMenuCompras() {
+		return "menuCompras";
 	}
 
 	@GetMapping("ingresoProducto")
@@ -81,7 +91,7 @@ public class GestionProductoController {
 	}
 
 	@GetMapping("actualizarProducto")
-	public String obtenerPaginaActualizarProducto(Producto producto) {
+	public String obtenerPaginaActualizarProducto(Producto producto, Model modelo) {
 
 		return "productoActualizar";
 
@@ -139,6 +149,46 @@ public class GestionProductoController {
 		this.proveedorService.insertarProveedor(proveedor);
 
 		return "redirect:ingresoProveedor";
+	}
+
+	@GetMapping("actualizarProveedor")
+	public String obtenerPaginaActualizarProveedor(Proveedor proveedor) {
+
+		return "proveedorActualizar";
+
+	}
+
+	@GetMapping("buscarProveedor")
+	public String obtenerProveedorPorNombre2(Proveedor proveedor, Model modelo, RedirectAttributes redirectAttributes) {
+
+		Proveedor p = this.proveedorService.buscarProveedorNombre(proveedor.getNombreEmpresa());
+		if (p == null || p.getId().equals(null)) {
+			redirectAttributes.addFlashAttribute("error", "Proveedor no encontrado");
+			return "redirect:/inventario/actualizarProveedor";
+		} else {
+			modelo.addAttribute("proveedor", p);
+
+			return "proveedorActualizar";
+		}
+
+	}
+
+	@PutMapping("actualizarProv")
+	public String actualizarProveedor(Proveedor proveedor, Model modelo, RedirectAttributes redirectAttributes) {
+
+		proveedor.setId(proveedor.getId());
+
+		this.proveedorService.actualizarProveedor(proveedor);
+		redirectAttributes.addFlashAttribute("mensaje", "Proveedor actualizado");
+		return "redirect:/inventario/actualizarProveedor";
+	}
+
+	@DeleteMapping("eliminarProveedor/{idProveedor}")
+	public String eliminarProveedor(@PathVariable Integer idProveedor, Proveedor proveedor, Model modelo,
+			RedirectAttributes redirectAttributes) {
+		redirectAttributes.addFlashAttribute("mensaje", "Proveedor eliminado");
+		this.proveedorService.eliminarProveedor(idProveedor);
+		return "redirect:/inventario/actualizarProveedor";
 	}
 
 }

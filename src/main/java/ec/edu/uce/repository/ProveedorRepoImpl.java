@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import ec.edu.uce.modelo.Producto;
 import ec.edu.uce.modelo.Proveedor;
 
 @Repository
@@ -63,6 +64,21 @@ public class ProveedorRepoImpl implements IProveedorRepo {
 	public void eliminarProveedor(Integer id) {
 		Proveedor provAEliminar = this.buscarProveedor(id);
 		this.entityManager.remove(provAEliminar);
+	}
+	
+	@Override
+	public List<Proveedor> buscarProveedorPorNombre(String nombreEmpresa) {
+		TypedQuery<Proveedor> myQuery = this.entityManager
+				.createQuery("SELECT p FROM Proveedor p WHERE UPPER(p.nombreEmpresa) LIKE UPPER(:nombreEmpresa)", Proveedor.class);
+
+		myQuery.setParameter("nombreEmpresa", nombreEmpresa);
+		try {
+
+			return myQuery.getResultList();
+
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 
 }

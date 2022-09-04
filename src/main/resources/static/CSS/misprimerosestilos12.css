@@ -1,33 +1,33 @@
 #titulo {
   position: absolute;
-  top: 35px;
-  left: 175px;
+  top: 50px;
+  left: 215px;
   background:rgb(252, 177, 93);
   font-size: 100px;
 }
 
 #boton1 {
   position: absolute;
-  top: 220px;
-  left: 500px;
+  top: 250px;
+  left: 525px;
   background:black;
-   font-size: 40px;
+   font-size: 30px;
 }
 
 #boton2 {
   position: absolute;
-  top: 370px;
-  left: 395px;
+  top: 350px;
+  left: 500px;
   background:black;
-   font-size: 40px;
+   font-size: 30px;
 }
 
 #boton3 {
   position: absolute;
-  top: 520px;
-  left: 475px;
+  top: 450px;
+  left: 525px;
   background:black;
-   font-size: 40px;
+  font-size: 30px;
 }
 
 #boton4 {
@@ -37,7 +37,6 @@
   background:black;
    font-size: 18px;
 }
-
 
 h1{
 	font-family: cursive;

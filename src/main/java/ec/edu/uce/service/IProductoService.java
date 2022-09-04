@@ -20,4 +20,6 @@ public interface IProductoService {
 
 	List<Producto> buscarProductoPorNombre(String nombre);
 
+	List<Producto> buscarProductoPorCategoria(String categoria);
+
 }

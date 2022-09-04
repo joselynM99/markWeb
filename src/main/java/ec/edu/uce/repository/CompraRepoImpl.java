@@ -1,5 +1,6 @@
 package ec.edu.uce.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import ec.edu.uce.modelo.Compra;
+import ec.edu.uce.modelo.Venta;
 
 @Transactional
 @Repository
@@ -32,6 +34,18 @@ public class CompraRepoImpl implements ICompraRepo {
 	public List<Compra> buscarTodosCompra() {
 
 		TypedQuery<Compra> myQuery = this.entityManager.createQuery("SELECT c FROM Compra c", Compra.class);
+		return myQuery.getResultList();
+	}
+
+	@Override
+	public List<Compra> buscarPorFechaTO(LocalDateTime fechaInicio, LocalDateTime fechaFinal) {
+
+		TypedQuery<Compra> myQuery = this.entityManager.createQuery(
+				"SELECT c FROM Compra c WHERE c.fecha >=: fechaInicio AND c.fecha<=:fechaFinal", Compra.class);
+
+		myQuery.setParameter("fechaInicio", fechaInicio);
+		myQuery.setParameter("fechaFinal", fechaFinal);
+
 		return myQuery.getResultList();
 	}
 

@@ -48,6 +48,11 @@ public class ProductoServiceImpl implements IProductoService{
 	public List<Producto> buscarProductoPorNombre(String nombre) {
 		return this.productoRepo.buscarProductoPorNombre("%"+nombre+"%");
 	}
+
+	@Override
+	public List<Producto> buscarProductoPorCategoria(String categoria) {
+		return this.productoRepo.buscarProductoPorCategoria(categoria);
+	}
 	
 	
 
