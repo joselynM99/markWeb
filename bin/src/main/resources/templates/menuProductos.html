@@ -27,7 +27,7 @@
 
 				<tr>
 					<td>
-						<form th:action="@{/inventario/ingresoProducto}" method="get">
+						<form th:action="@{/inventario/ingresoProducto}" th:method="get">
 							<input type="submit" class="btn btn-dark" id="boton1" value="Ingresar Productos">
 						</form>
 					</td>
@@ -36,12 +36,32 @@
 
 				<tr>
 					<td>
-
-						<input type="submit" class="btn btn-dark" id="boton2" value="Modificar o Eliminar Productos">
-
+						<form th:action="@{/inventario/actualizarProducto}" th:method="get">
+							<input type="submit" class="btn btn-dark" id="boton2"
+								value="Modificar o Eliminar Productos">
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form th:action="@{/reportes/reporteProductos}" th:method="get">
+							<input type="submit" class="btn btn-dark" id="boton3" value="Reporte de Productos">
+						</form>
 					</td>
 				</tr>
 
+			</table>
+
+		</div>
+	</div>
+	<div class=container my-5>
+		<div class="card-body" id="cuatro">
+			<table class="table-primary">
+				<tr>
+					<form th:action="@{/inventario/MenuInicial}" th:method="get">
+						<input type="submit" class="btn btn-dark" id="boton4" value="<< Menú Inicial">
+					</form>
+				</tr>
 			</table>
 
 		</div>

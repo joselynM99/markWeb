@@ -65,7 +65,7 @@
 						<td th:text="${det.cantidad}"></td>
 						<td th:text="${det.total}"></td>
 						<td>
-							<form th:action="@{/ventas/borrar/} + ${iterador.index}" method="post" ,
+							<form th:action="@{/ventas/borrar/} + ${iterador.index}" th:method="delete" ,
 								th:object=${producto}>
 								<input type="submit" class="btn btn-dark" value="Eliminar" , id=bot1>
 								</button>
@@ -145,7 +145,18 @@
 		</div>
 	</div>
 
+	<div class=container my-5>
+		<div class="card-body" id="cuatro">
+			<table class="table-primary">
+				<tr>
+					<form th:action="@{/ventas/gestionVentas}" th:method="get">
+						<input type="submit" class="btn btn-dark" id="boton4" value="<< Gestión Ventas">
+					</form>
+				</tr>
+			</table>
 
+		</div>
+	</div>
 
 </body>
 

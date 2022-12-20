@@ -38,12 +38,11 @@
 						<input type="submit" class="btn btn-dark" value="Buscar">
 					</td>
 
-					<div th:classappend="'alert'" th:if="${error != null}"
-						th:text="${error}" class="alert" id="error">
+					<div th:classappend="'alert'" th:if="${error != null}" th:text="${error}" class="alert" id="error">
 					</div>
-					
-					<div th:classappend="'alert'" th:if="${mensaje != null}"
-						th:text="${mensaje}" class="alert" id="mensaje">
+
+					<div th:classappend="'alert'" th:if="${mensaje != null}" th:text="${mensaje}" class="alert"
+						id="mensaje">
 					</div>
 
 				</table>
@@ -146,6 +145,19 @@
 				</table>
 				<input type="submit" class="btn btn-dark" value="Ingresar">
 			</form>
+
+		</div>
+	</div>
+
+	<div class=container my-5>
+		<div class="card-body" id="cuatro">
+			<table class="table-primary">
+				<tr>
+					<form th:action="@{/inventario/GestionProductos}" th:method="get">
+						<input type="submit" class="btn btn-dark" id="boton4" value="<< Gestión Productos">
+					</form>
+				</tr>
+			</table>
 
 		</div>
 	</div>

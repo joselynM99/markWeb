@@ -39,6 +39,14 @@ position: absolute;
   left: 100px;
 	
 }
+
+#boton4 {
+  position: absolute;
+  top: 560px;
+  left: 900px;
+  background:black;
+   font-size: 18px;
+}
 h1{
 	font-family: cursive;
 }

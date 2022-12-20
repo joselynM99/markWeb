@@ -36,6 +36,14 @@ h1{
   font-family: cursive;
   font-size: 30px;
 }
+
+#boton4 {
+  position: absolute;
+  top: 600px;
+  left: 1000px;
+  background:black;
+   font-size: 18px;
+}
 #error{
 	position: absolute;
   top: 130px;
